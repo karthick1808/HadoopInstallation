@@ -12,9 +12,13 @@ It is advisable to create a non-root user, specifically for the Hadoop environme
 Install OpenSSH on Ubuntu
 Install the OpenSSH server and client using the following command:
 sudo apt install openssh-server openssh-client -y
-sudo adduser hdoop
+sudo adduser hadoop
+
 visudo
-su - hdoop
+hadoop  ALL=NOPASSWD: ALL
+
+
+su - hadoop
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
